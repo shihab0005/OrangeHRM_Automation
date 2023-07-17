@@ -7,11 +7,11 @@ const username = "Admin";
 const password = "admin123";
 const role = "Admin";
 const status_user = "Enabled";
-const empName = "Dica Alexandru";
+const empName = "Lisa Andrews";
 const userName = "shihab72" + x;
 const searchUserName = userName;
 const pass = "Shi12#$%";
-
+const updateName = "SK" + x;
 test.describe("Test_002 Admin Section Automation", () => {
   let page;
   let admin;
@@ -19,15 +19,15 @@ test.describe("Test_002 Admin Section Automation", () => {
   let context;
   let browser;
 
-  test.beforeEach(async () => {
+  test.beforeEach(async ({}) => {
     browser = await chromium.launch();
-    context = await browser.newContext();
+    context = await browser.newContext({ storageState: "./auth.json" });
     page = await context.newPage();
     await page.goto(
       "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
     );
-    login = new LoginPage(page);
-    login.LoginWithCredential(username, password);
+    // login = new LoginPage(page);
+    // login.LoginWithCredential(username, password);
     await page.click("//span[text()='Admin']");
     admin = new AdminPage(page);
   });
@@ -44,7 +44,7 @@ test.describe("Test_002 Admin Section Automation", () => {
     await admin.confPasswordFieldValue(pass);
     await admin.clickSaveBtn();
     await admin.successfullySaveInfo();
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
   });
 
   test("Search System Users Using User Details", async () => {
@@ -54,8 +54,7 @@ test.describe("Test_002 Admin Section Automation", () => {
     await admin.searchOptionFromStatusSelector(status_user);
     await admin.clickSearchButton();
     await admin.searchResultFromTable(searchUserName);
-    await page.waitForTimeout(5000);
-    
+    // await page.waitForTimeout(5000);
   });
 
   test("Delete Selected Value From Table", async () => {
@@ -86,7 +85,7 @@ test.describe("Test_002 Admin Section Automation", () => {
   });
 
   test("Update User Information", async () => {
-    await admin.updateUserInfoFromTable(searchUserName);
+    await admin.updateUserInfoFromTable(searchUserName, updateName);
     // await page.waitForTimeout(3000);
   });
 });

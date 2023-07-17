@@ -378,15 +378,15 @@ export default class AdminPage {
       "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]"
     );
 
-  async updateUsernameFieldValue() {
+  async updateUsernameFieldValue(updateName) {
     const ele = await this.updateUsernameFieldLoc();
-    await ele?.fill("SkHan");
+    await ele?.fill(updateName);
   }
   async clickUpdateSaveBtn() {
     const ele = await this.updateSaveBtnLoc();
     await ele?.click();
   }
-  async updateUserInfoFromTable(searchUserName) {
+  async updateUserInfoFromTable(searchUserName,updateName) {
     await this.tableDataLoc().first().waitFor();
     const len = await this.tableDataLoc().count();
     console.log("Users :" + len);
@@ -401,7 +401,7 @@ export default class AdminPage {
         break;
       }
     }
-    this.updateUsernameFieldValue();
+    this.updateUsernameFieldValue(updateName);
     this.clickUpdateSaveBtn();
     const SuccessToast = await this.page
       .locator("//*[@id='oxd-toaster_1']/div/div[1]/div[2]/p[2]")
