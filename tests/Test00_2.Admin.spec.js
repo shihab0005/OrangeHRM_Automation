@@ -7,10 +7,11 @@ const username = "Admin";
 const password = "admin123";
 const role = "Admin";
 const status_user = "Enabled";
-const empName = "Lisa  Andrews";
+const empName = "Dica Alexandru";
 const userName = "shihab72" + x;
 const searchUserName = userName;
 const pass = "Shi12#$%";
+
 test.describe("Test_002 Admin Section Automation", () => {
   let page;
   let admin;
@@ -28,7 +29,6 @@ test.describe("Test_002 Admin Section Automation", () => {
     login = new LoginPage(page);
     login.LoginWithCredential(username, password);
     await page.click("//span[text()='Admin']");
-
     admin = new AdminPage(page);
   });
 
@@ -44,7 +44,7 @@ test.describe("Test_002 Admin Section Automation", () => {
     await admin.confPasswordFieldValue(pass);
     await admin.clickSaveBtn();
     await admin.successfullySaveInfo();
-    // await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);
   });
 
   test("Search System Users Using User Details", async () => {
@@ -54,24 +54,8 @@ test.describe("Test_002 Admin Section Automation", () => {
     await admin.searchOptionFromStatusSelector(status_user);
     await admin.clickSearchButton();
     await admin.searchResultFromTable(searchUserName);
-    // await page.waitForTimeout(3000);
-    // await page.locator("//div[@role='rowgroup']/div").first().waitFor();
-
-    // const Usersloc = page.locator("//div[@role='rowgroup']/div");
-    // const len = await Usersloc.count();
-    // console.log("Users :" + len);
-    // for (let i = 1; i < len; i++) {
-    //   const userName = await Usersloc.nth(i)
-    //     .locator("//div/div[2]/div")
-    //     .textContent();
-    //   console.log(userName);
-    //   if (userName == searchUserName) {
-    //     console.log("Successfully find the User");
-    //     break;
-    //   } else {
-    //     console.log("There is no record found!");
-    //   }
-    // }
+    await page.waitForTimeout(5000);
+    
   });
 
   test("Delete Selected Value From Table", async () => {

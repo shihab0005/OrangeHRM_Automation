@@ -5,7 +5,9 @@ export default class AdminPage {
     this.page = page;
   }
 
-  /*--------------------------------------Add New User (Locators)-------------------------------------*/
+  /*-------------------------------------------------------------------------
+  ------------------------------------------Add New User (Locators)----------
+  ----------------------------------------------------------------------------*/
   userManagementLoc = () =>
     this.page.locator("//span[text()='User Management ']");
   userOptionLoc = () => this.page.locator("//li/ul[@role='menu']/li/a");
@@ -14,96 +16,107 @@ export default class AdminPage {
 
   userRoleSelectLocator = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div"
+      "(//div[@class='oxd-select-text oxd-select-text--active'])[1]"
     );
 
-  userRoleOptionsLoc = () => this.page.locator("//div[@role='listbox']/div");
+  // userRoleSelectOptionsLoc = () =>
+  //   this.page.locator("//div[@role='listbox']/div");
+
+  commonUserSelectOptionsLoc = () =>
+    this.page.locator("//div[@role='listbox']/div");
 
   statusSelectLocator = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div"
+      "(//div[@class='oxd-select-text oxd-select-text--active'])[2]"
     );
 
-  statusOptionLoc = () =>
-    this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div"
-    );
+  // statusSelectOptionsLoc = () => this.page.locator("//div[@role='listbox']/div");
 
   employeeNameLoc = () =>
     this.page.locator(
       "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[1]/input"
     );
 
-  empOptionsLoc = () =>
-    this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div"
-    );
+  // employeeOptionsLoc = () => this.page.locator("//div[@role='listbox']/div");
 
   usernameLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input"
+      "(//input[@class='oxd-input oxd-input--active'])[2]"
     );
 
   passwordLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input"
+      // "(//input[@class='oxd-input oxd-input--active'])[3]"
+      "(//div[@class='oxd-input-group oxd-input-field-bottom-space']/div/input)[2]"
     );
 
   confirmPasswordLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input"
+      "(//div[@class='oxd-input-group oxd-input-field-bottom-space']/div/input)[3]"
     );
 
   saveBtnLoc = () => this.page.locator("//button[text()=' Save ']");
   successMessage = () =>
     this.page.locator("//*[@id='oxd-toaster_1']/div/div[1]/div[2]/p[1]");
 
-  //*--------------------------------------Searching user Form (Locators)-------------------------------------*/
+  /*--------------------------------------------------------------
+  --------------------------------------------Searching user Form (Locators)-----
+  -------------------------------------------------------------*/
 
   searchUserNameFieldLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"
+      "(//div[@class='oxd-input-group oxd-input-field-bottom-space']//input)[1]"
     );
 
   searchUserRoleSelectBoxLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]"
+      "(//div[@class='oxd-select-wrapper'])[1]"
     );
 
-  searchUserRoleSelectOptionsLoc = () =>
-    this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div"
-    );
+  // searchUserRoleSelectOptionLoc = () =>
+  //   this.page.locator(
+  //      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div"
+
+  //   );
 
   searchEmployeeNameInputfieldLoc = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/input"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/input"
+      "(//div[@class='oxd-input-group oxd-input-field-bottom-space']//input)[2]"
     );
 
-  searchEmployeeNameInputfieldOptionsLoc = () =>
-    this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div"
-    );
+  // commonUserSelectOptionsLoc = () =>
+  //   this.page.locator(
+  //     "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div"
+  //   );
 
   searchStatusSelectBoxLocator = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]"
+      "(//div[@class='oxd-select-wrapper'])[2]"
     );
 
-  searchStatusSelectOptionsLoc = () =>
-    this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div[2]/div"
-    );
+  // searchStatusSelectOptionsLoc = () =>
+  //   this.page.locator(
+  //     "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div[2]/div"
+  //   );
   searchButtonLoc = () =>
     this.page.locator("//button[normalize-space()='Search']");
 
-  /*--------------------------------------Searching Result Table (Locators)-------------------------------------*/
+  /*-----------------------------------------------------------------------
+  ------------------------------------------------Searching Result Table (Locators)-------
+  -------------------------------------------------------------------------*/
 
   userTablesLoc = () => this.page.locator("//div[@role='rowgroup']/div");
 
-  /*----------------------------------
+  /*-------------------------------------------------------
   -----------Searching Result Table (Functionality)--------
-  -----------------------------*/
+  ---------------------------------------------------------*/
   async searchResultFromTable(searchUserName) {
     await this.userTablesLoc().first().waitFor();
     const len = await this.userTablesLoc().count();
@@ -152,18 +165,18 @@ export default class AdminPage {
 
   async SearchOptionFromUserRoleSelector(role) {
     await this.clickSearchUserRoleSelectBox();
-    const total = await this.searchUserRoleSelectOptionsLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.searchUserRoleSelectOptionsLoc()).toHaveCount(total);
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 1; i < total; i++) {
-      const option = await this.searchUserRoleSelectOptionsLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
       if (option == role) {
-        await this.searchUserRoleSelectOptionsLoc().nth(i).click();
+        await this.commonUserSelectOptionsLoc().nth(i).click();
         break;
       }
     }
@@ -171,43 +184,43 @@ export default class AdminPage {
 
   async searchOptionFromEmployeeNameSelector(empName) {
     await this.searchEmployeeNameInputfieldValue(empName);
-    const total = await this.searchEmployeeNameInputfieldOptionsLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.searchEmployeeNameInputfieldOptionsLoc()).toHaveCount(
-      total
-    );
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 0; i < total; i++) {
-      const option = await this.searchEmployeeNameInputfieldOptionsLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
-      await this.searchEmployeeNameInputfieldOptionsLoc().nth(i).click();
+      await this.commonUserSelectOptionsLoc().nth(i).click();
       break;
     }
   }
 
   async searchOptionFromStatusSelector(status) {
     await this.clickSearchStatusSelectBox();
-    const total = await this.searchStatusSelectOptionsLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.searchStatusSelectOptionsLoc()).toHaveCount(total);
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 1; i < total; i++) {
-      const option = await this.searchStatusSelectOptionsLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
       if (option == status) {
-        await this.searchStatusSelectOptionsLoc().nth(i).click();
+        await this.commonUserSelectOptionsLoc().nth(i).click();
         break;
       }
     }
   }
 
-  /*--------------------------------------Functionality for Add New User--------------------------------*/
+  /*------------------------------------------------------------------------
+  ---------------------------------------------------------Functionality for Add New User---
+  -------------------------------------------------------------------------*/
 
   async ClickUserManagmentOption() {
     const ele = this.userManagementLoc();
@@ -263,18 +276,18 @@ export default class AdminPage {
   }
   async SelectOptionFromUserRoleSelector(role) {
     await this.ClickUserRoleSelectBox();
-    const total = await this.userRoleOptionsLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.userRoleOptionsLoc()).toHaveCount(total);
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 1; i < total; i++) {
-      const option = await this.userRoleOptionsLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
       if (option == role) {
-        await this.userRoleOptionsLoc().nth(i).click();
+        await this.commonUserSelectOptionsLoc().nth(i).click();
         break;
       }
     }
@@ -282,18 +295,18 @@ export default class AdminPage {
 
   async SelectOptionFromStatusSelector(status) {
     await this.ClickStatusSelectBox();
-    const total = await this.statusOptionLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.statusOptionLoc()).toHaveCount(total);
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 1; i < total; i++) {
-      const option = await this.statusOptionLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
       if (option == status) {
-        await this.statusOptionLoc().nth(i).click();
+        await this.commonUserSelectOptionsLoc().nth(i).click();
         break;
       }
     }
@@ -301,39 +314,40 @@ export default class AdminPage {
 
   async SelectOptionFromEmployeeNameSelector(empName) {
     await this.employeeNameFieldValue(empName);
-    const total = await this.empOptionsLoc().count();
+    const total = await this.commonUserSelectOptionsLoc().count();
     console.log("total Option : " + total);
-    await expect(this.empOptionsLoc()).toHaveCount(total);
+    await expect(this.commonUserSelectOptionsLoc()).toHaveCount(total);
 
     for (let i = 0; i < total; i++) {
-      const option = await this.empOptionsLoc()
+      const option = await this.commonUserSelectOptionsLoc()
         .nth(i)
         .locator("span")
         .textContent();
       console.log(option);
-      await this.empOptionsLoc().nth(i).click();
+      await this.commonUserSelectOptionsLoc().nth(i).click();
       break;
     }
   }
 
-  /*--------------------------------------------------------------
-  --------Delete Selected Value From Table Start------------------
-  --------------------------------------------------------------*/
+  /*---------------------------------------------------------------------
+  ----------------------------------------------Delete Selected Value From Table Start-----
+  -----------------------------------------------------------------------*/
 
   tableDataLoc = () => this.page.locator("//div[@role='rowgroup']/div");
 
   tableDeletBtn = () =>
     this.page.locator(
-      "//*[@id='app']/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div/button"
+      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div/button"
+      "//button[@class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-horizontal-margin']"
     );
   tableConfirmDeleteBtn = () =>
-    this.page.locator("//*[@id='app']/div[3]/div/div/div/div[3]/button[2]");
+    this.page.locator("//div[@class='orangehrm-modal-footer']/button[2]");
 
   async deleteSelectedValueFromTable() {
     await this.tableDataLoc().nth(1).waitFor();
     const len = await this.tableDataLoc().count();
     console.log("Users :" + len);
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 3; i++) {
       if (i % 2 == 0) {
         await this.tableDataLoc().nth(i).locator("//div//span").click();
       }
