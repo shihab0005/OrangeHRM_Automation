@@ -1,13 +1,21 @@
 {
-  "name": "OrangeHRM_Automation",
+  "name": "OrangrHRM",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:chrome": "npx playwright test --project=Chrome",
+    "test:one": "npx playwright test Test_001_login_page.spec.js",
+    "test:two": "npx playwright test Test_002_dashboard.spec.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.36.1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
   }
 }

@@ -347,7 +347,7 @@ export default class AdminPage {
     await this.tableDataLoc().nth(1).waitFor();
     const len = await this.tableDataLoc().count();
     console.log("Users :" + len);
-    for (let i = 1; i < 3; i++) {
+    for (let i = 1; i < 6; i++) {
       if (i % 2 == 0) {
         await this.tableDataLoc().nth(i).locator("//div//span").click();
       }
@@ -386,7 +386,7 @@ export default class AdminPage {
     const ele = await this.updateSaveBtnLoc();
     await ele?.click();
   }
-  async updateUserInfoFromTable(searchUserName,updateName) {
+  async updateUserInfoFromTable(searchUserName, updateName) {
     await this.tableDataLoc().first().waitFor();
     const len = await this.tableDataLoc().count();
     console.log("Users :" + len);
@@ -395,14 +395,14 @@ export default class AdminPage {
         .nth(i)
         .locator("//div/div[2]/div")
         .textContent();
-      console.log(userName);
+      // console.log(userName);
       if (userName == searchUserName) {
         await this.tableDataLoc().nth(i).locator("//div//button[2]").click();
         break;
       }
     }
-    this.updateUsernameFieldValue(updateName);
-    this.clickUpdateSaveBtn();
+    await this.updateUsernameFieldValue(updateName);
+    await this.clickUpdateSaveBtn();
     const SuccessToast = await this.page
       .locator("//*[@id='oxd-toaster_1']/div/div[1]/div[2]/p[2]")
       .textContent();

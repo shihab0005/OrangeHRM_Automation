@@ -16,6 +16,7 @@ module.exports = defineConfig({
   expect: {
     timeout: 10000,
   },
+  // testMatch: ".*(test|spec).(js|ts|mjs)",
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,7 +30,7 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     headless: false,
-    browserName: "chromium",
+    // browserName: "chromium",
     viewport: {
       width: 1920,
       height: 1080,
@@ -38,7 +39,7 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    // trace: "on",
   },
 
   /* Configure projects for major browsers */
