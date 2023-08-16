@@ -1,6 +1,23 @@
+/* Scenario 1: Verify user Login with all required field and valid, invalid credentials and messages. 
+
+
+Scenario Description: 
+User Navigate To the Login page and Login with valid and invalid Credentials and verify all error message
+and Track Successfully login. 
+
+
+Test cases:
+1.	Navigate to Website Login Page .
+2.	Verify All Element is visible in Ui.
+3.  Login With Valid Credential verify all the  message.
+4.	Login With invalid Credentials and verify all the error message.
+5.	Login With Only valid username and verify all the error message.
+6.	Login With Only valid Password and verify all the error message.
+*/
+
 // import test from "../fixture/testFixture";
-import { chromium,  test } from "@playwright/test";
-import { POManager } from "../page/POManager";
+import { chromium, test } from "@playwright/test";
+const { POManager } = require("../page/POManager");
 
 test.describe("001_Test Login Functionalty", () => {
   let page;
@@ -15,9 +32,14 @@ test.describe("001_Test Login Functionalty", () => {
     loginPage = poManager.getLoginPage();
     await loginPage.openApp();
   });
+  test.afterEach(async () => {
+    await browser.close();
+  });
 
   test("Verify All Element is visible in Ui", async () => {
     await loginPage.verifyAllUiElementOfLoginPage();
+    await loginPage.verifyPageURL();
+    await loginPage.verifyPageTitle();
     console.log("All Element Is Visible in Login page Ui");
   });
 

@@ -1,35 +1,40 @@
-import { expect } from "@playwright/test";
-import BasePage from "./basePage";
-import fs from "fs";
-
-import {
-  loginPageLogo,
-  loginText,
+const { expect } = require("@playwright/test");
+// const BasePage = require("./basePage");
+const fs = require("fs");
+// import BasePage from "./basePage.js";
+const { BasePage } = require("./basePage");
+const {
   userNameField,
   passwordField,
   loginButton,
   requirdErrorMessage,
-  forgetPassword,
   InvalidCredentialsDiv,
   orangeHRMLogo,
-  InvalidCredentialsMessage,
-  emptyFieldRequireMsg,
   linkedinLogo,
   facebookLogo,
   twitterLogo,
   youtubeLogo,
   orangeHrmVersion,
   dashboardText,
-} from "../pageObjects/LoginPageLocator.js";
+} = require("../pageLocator/LoginPageLocator.js");
+
 const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
 
-export default class LoginPage extends BasePage {
+class LoginPage extends BasePage {
   constructor(page) {
     super(page);
   }
 
   openApp = async () => {
     await this.open(testData.url);
+  };
+
+  verifyPageURL = async () => {
+    await expect(this.page).toHaveURL(testData.url);
+  };
+
+  verifyPageTitle = async () => {
+    await expect(this.page).toHaveTitle(testData.SiteTitle);
   };
 
   verifyAllUiElementOfLoginPage = async () => {
@@ -57,9 +62,15 @@ export default class LoginPage extends BasePage {
     await this.waitAndFill(passwordField, testData.Password);
     await this.waitAndClick(loginButton);
   }
+  async LoginWithCredentialValue(UserName, Password) {
+    await this.waitAndFill(userNameField, UserName);
+    await this.waitAndFill(passwordField, Password);
+    await this.waitAndClick(loginButton);
+  }
   verifySuccessfullyLoginDashboard = async () => {
     await this.isElementVisible(orangeHRMLogo, testData.notVisibleText);
     await this.isElementVisible(dashboardText, testData.notVisibleText);
+    await this.verifyElementText(dashboardText, testData.Dashboard);
   };
   LoginWithInvalidCredential = async () => {
     await this.waitAndFill(userNameField, testData.IUserName);
@@ -76,3 +87,4 @@ export default class LoginPage extends BasePage {
     expect(requirdErrorMessage).toContain(testData.Required);
   };
 }
+module.exports = { LoginPage };
