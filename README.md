@@ -33,7 +33,7 @@ Testname: Test_001_login_page.spec.js
 ```
 
 ```bash
- Scenario 1: Verify Admin Page with CURD Operation and verify all required field and valid, invalid credentials and messages. 
+ Scenario 2: Verify Admin Page with CURD Operation and verify all required field and valid, invalid credentials and messages. 
 
 
 Scenario Description: 
