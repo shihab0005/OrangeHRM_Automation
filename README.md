@@ -3,7 +3,13 @@
 ## Application Under Test
 
 - **URL** :  https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+- **Test Tool** :  Playwright 
+- **Architecture** :  Page Object Design Pattern Framework 
+- **Report** :  Allure Report, HTML Report
 - **OS**  :  Windows
+- **Version Control**  :  Git
+- **Pipeline**  :  CI/CD (Jinkins)
+- **BDD**  :  Cucumber (JavaScript))
 - **IDE** :  Visual Studio Code
 
 ## Scenarios
