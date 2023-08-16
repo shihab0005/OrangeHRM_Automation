@@ -17,7 +17,7 @@
 - **Pipeline**  :  CI/CD (Jinkins)
   
 - **BDD**  :  Cucumber (JavaScript)
-- 
+
 - **IDE** :  Visual Studio Code
 
 ## Scenarios
