@@ -1,4 +1,4 @@
-# OrangeHRM_page_object_design_pattern_framework
+# OrangeHRM_Page_Object_Design_Pattern_Framework
 
 ## Application Under Test
 
@@ -9,10 +9,15 @@
 - **Architecture** :  Page Object Design Pattern Framework
   
 - **Report** :  Allure Report, HTML Report
+
 - **OS**  :  Windows
+  
 - **Version Control**  :  Git
+  
 - **Pipeline**  :  CI/CD (Jinkins)
-- **BDD**  :  Cucumber (JavaScript))
+  
+- **BDD**  :  Cucumber (JavaScript)
+- 
 - **IDE** :  Visual Studio Code
 
 ## Scenarios
