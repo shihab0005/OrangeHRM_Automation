@@ -1,6 +1,6 @@
 // import BasePage from "./basePage";
 const { BasePage } = require("./basePage");
-const { adminItem } = require("../pageLocator/DashboardPageLocator");
+const { adminItem,pimItem } = require("../pageLocator/DashboardPageLocator");
 
 class DashboardPage extends BasePage {
   constructor(page) {
@@ -9,6 +9,10 @@ class DashboardPage extends BasePage {
 
   navigateToAdminPage = async () => {
     await this.waitAndClick(adminItem);
+  };
+  
+  navigateToPimPage = async () => {
+    await this.waitAndClick(pimItem);
   };
 }
 module.exports = { DashboardPage };

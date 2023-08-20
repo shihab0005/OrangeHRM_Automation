@@ -1,4 +1,2 @@
 module.exports.adminItem = "//span[text()='Admin']";
-module.exports.loginText = "//h5[text()='Login']";
-module.exports.userNameField = "//input[@name='username']";
-module.exports.passwordField = "//input[@name='password']";
+module.exports.pimItem = "//ul[@class='oxd-main-menu']/li[2]/a";

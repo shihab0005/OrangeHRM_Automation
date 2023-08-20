@@ -19,5 +19,10 @@
   "pass": "Shi12#$%",
   "success": "Success",
   "info": "Info",
-  "updateName": "shihab11 update"
+  "addEmployeeText": "Add Employee",
+  "fname": "Shihab",
+  "mname": "khan",
+  "lname": "khan",
+  "imageFile": "tests/files/shihab.jpg",
+  "empId": "12125"
 }

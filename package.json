@@ -7,7 +7,8 @@
     "test": "npx playwright test",
     "test:chrome": "npx playwright test --project=Chrome",
     "test:one": "npx playwright test Test_001_login_page.spec.js",
-    "test:two": "npx playwright test Test_002_dashboard.spec.js",
+    "test:two": "npx playwright test Test_002_pim_page.spec.js",
+    "test:three": "npx playwright test Test_003_admin_page.spec.js",
     "cucumber:validCredential": "npx cucumber-js --tags @LoginValidCredintials --exit"
   },
   "keywords": [],

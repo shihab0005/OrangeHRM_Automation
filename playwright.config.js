@@ -14,7 +14,7 @@ module.exports = defineConfig({
   testDir: "./tests",
   timeout: 100 * 1000,
   expect: {
-    timeout: 10000,
+    timeout: 3000,
   },
   // testMatch: ".*(test|spec).(js|ts|mjs)",
   /* Run tests in files in parallel */

@@ -32,6 +32,7 @@ test.describe("001_Test Login Functionalty", () => {
     loginPage = poManager.getLoginPage();
     await loginPage.openApp();
   });
+
   test.afterEach(async () => {
     await browser.close();
   });

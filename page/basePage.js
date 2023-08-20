@@ -18,7 +18,7 @@ class BasePage {
   }
 
   async wait() {
-    return this.page.waitForTimeout(10000);
+    return this.page.waitForTimeout(3000);
   }
   async push() {
     await this.page.push();
@@ -29,6 +29,7 @@ class BasePage {
   }
 
   async waitAndClick(selector) {
+    await this.page.locator(selector).waitFor();
     return await this.page.click(selector);
   }
 
@@ -36,7 +37,14 @@ class BasePage {
     return await this.page.$eval(selector, (element) => element.click());
   }
 
+  async fileUploade(selector, path) {
+    // await this.page.locator(selector).click();
+    await this.page.locator(selector).setInputFiles(path);
+    // await this.page.setInputFiles(selector, "tests/files/shihab.jpg");
+  }
+
   async waitAndFill(selector, text) {
+    await this.page.locator(selector).waitFor();
     await this.page.fill(selector, text);
   }
   async delayAndFill(selector, text) {
@@ -190,7 +198,8 @@ class BasePage {
   }
 
   async isElementVisible(selector, errorMessage) {
-    await this.page.waitForSelector(selector);
+    await this.page.locator(selector).waitFor();
+    // await this.page.waitForSelector(selector);
     const element = this.page.locator(selector);
     try {
       const isVisible = await element.isVisible();

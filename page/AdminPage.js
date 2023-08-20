@@ -2,11 +2,11 @@ const { expect } = require("@playwright/test");
 const fs = require("fs");
 // import BasePage from "./basePage";
 const { BasePage } = require("./basePage");
-let x = Math.floor(Math.random() * 1000 + 1);
-const userName = "shihab1" + x;
-const tUserName = userName;
+// let x = Math.floor(Math.random() * 100 + 1);
+const userName = "shihabkhan10";
+
 const searchUserName = userName;
-const updateUserName = userName + "update";
+const updateUserName = userName + "up";
 
 const {
   userManagementLoc,
@@ -29,7 +29,7 @@ const {
   tableUserroleCol,
   tableCheckboxCol,
   userDeleteFromTableBtn,
-  confirmDeleteFromTableBtn
+  confirmDeleteFromTableBtn,
 } = require("../pageLocator/AdminPageLocator.js");
 
 const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
@@ -96,27 +96,27 @@ class AdminPage extends BasePage {
   ----------------------------------------------------------------------------*/
 
   searchUsernameFieldValue = async () => {
-    await this.waitAndFill(searchUsernameField, tUserName);
+    await this.waitAndFill(searchUsernameField, searchUserName);
   };
 
   clickSearchBtn = async () => {
     await this.waitAndClick(searchBtn);
   };
   verifySearchingResult = async () => {
-    await this.isElementVisible(tableRowLoc, testData.notVisibleText);
-    await this.verifyElementText(tableUsernameCol, tUserName);
+    // await this.isElementVisible(tableRowLoc, testData.notVisibleText);
+    await this.verifyElementText(tableUsernameCol, searchUserName);
     await this.verifyElementText(tableUserroleCol, testData.userRole);
   };
 
-  // verifyErrorMessage = async () => {
-  //   await this.isElementVisible(toastDiv, testData.notVisibleText);
-  //   await this.verifyElementText(saveSuccessMsg, testData.info);
-  //   console.log("User Not Found");
-  // };
+  verifyErrorMessage = async () => {
+    await this.isElementVisible(toastDiv, testData.notVisibleText);
+    await this.verifyElementText(saveSuccessMsg, testData.info);
+    console.log("User Not Found");
+  };
 
   /*----------------------------------------------------------------
-  ----------------------------------------------------------- Delet User From table ------------------
-  ------------------------------------------------------------------*/
+   ----------------------------------------------------------- Delet and Update User From table ------------
+    ------------------------------------------------------------------*/
 
   selectAllUserFromTable = async () => {
     await this.clickAllElements(tableCheckboxCol);
@@ -157,50 +157,13 @@ class AdminPage extends BasePage {
     await this.waitAndClick(confirmDeleteFromTableBtn);
   };
 
-  verifyAfterSuccessfullyDeleteRecord=async()=>{
+  verifyAfterSuccessfullyDeleteRecord = async () => {
     await this.isElementVisible(toastDiv, testData.notVisibleText);
     await this.verifyElementText(saveSuccessMsg, testData.success);
-  }
-
-  waitForTimeOut = async () => {
-    await this.wait();
   };
 
-  /*---------------------------------------------------------------------
-  -------------------------------------------------  Delete Selected Value From Table Start  ----------
-  -----------------------------------------------------------------------*/
-
-  tableDataLoc = () => this.page.locator("//div[@role='rowgroup']/div");
-
-  tableDeletBtn = () =>
-    this.page.locator(
-      // "//*[@id='app']/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div/button"
-      "//button[@class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-horizontal-margin']"
-    );
-  tableConfirmDeleteBtn = () =>
-    this.page.locator("//div[@class='orangehrm-modal-footer']/button[2]");
-
-  async deleteSelectedValueFromTable() {
-    await this.tableDataLoc().nth(1).waitFor();
-    const len = await this.tableDataLoc().count();
-    console.log("Users :" + len);
-    for (let i = 1; i < 6; i++) {
-      if (i % 2 == 0) {
-        await this.tableDataLoc().nth(i).locator("//div//span").click();
-      }
-    }
-    await this.tableDeletBtn()?.click();
-    await this.tableConfirmDeleteBtn()?.click();
-    const SuccessToast = await this.page
-      .locator("//*[@id='oxd-toaster_1']/div/div[1]/div[2]/p[2]")
-      .textContent();
-    if (SuccessToast == "Successfully Deleted") {
-      console.log("Successfully Deleted Users Record");
-    }
-  }
-
-  /*--------------------------------------------------------------
---------Delete Selected Value From Table end------------------------
-----------------------------------------------------------------*/
+  waitForTimeOut = async () => {
+    await this.wait(5000);
+  };
 }
 module.exports = { AdminPage };

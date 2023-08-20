@@ -1,4 +1,4 @@
-/* Scenario 1: Verify Admin Page with all required field and valid, invalid credentials and messages. 
+/* Scenario 1: Verify Admin Page with CURD Operation and all required field and valid, invalid credentials and messages. 
 
 
 Scenario Description: 
@@ -21,7 +21,7 @@ import { chromium, test } from "@playwright/test";
 
 import { POManager } from "../page/POManager";
 
-test.describe("Test_002 Admin Section Automation", () => {
+test.describe("Test_003 Admin Section Automation", () => {
   let page;
   let context;
   let browser;
@@ -48,10 +48,6 @@ test.describe("Test_002 Admin Section Automation", () => {
     await browser.close();
   });
 
-  // test.afterAll(async () => {
-  //   await this.page.push();
-  // });
-
   test("User Management Section Add New User", async () => {
     await adminPage.selectUserOptionFromDropdown();
     await adminPage.clcikAddNewUserBtn();
@@ -77,7 +73,8 @@ test.describe("Test_002 Admin Section Automation", () => {
   test("Find User From  System Users using Only Username", async () => {
     await adminPage.searchUsernameFieldValue();
     await adminPage.clickSearchBtn();
-    //  await adminPage.verifyErrorMessage();
+    // await adminPage.verifyErrorMessage();
+    await adminPage.waitForTimeOut();
     await adminPage.verifySearchingResult();
   });
 
@@ -90,8 +87,8 @@ test.describe("Test_002 Admin Section Automation", () => {
     await adminPage.updateOptionFromStatusSelector();
     await adminPage.updateUserNameFieldValue();
     await adminPage.clickUpdateSaveBtn();
-    await adminPage.verifyUpdateUserSuccessfully();
     await adminPage.waitForTimeOut();
+    await adminPage.verifyUpdateUserSuccessfully();
   });
 
   test("If Total user up to 10 then delete all odd user from 1 to 10", async () => {
