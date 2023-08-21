@@ -3,7 +3,7 @@ const fs = require("fs");
 // import BasePage from "./basePage";
 const { BasePage } = require("./basePage");
 // let x = Math.floor(Math.random() * 100 + 1);
-const userName = "shihabkhan10";
+const userName = "shihabkhan12";
 
 const searchUserName = userName;
 const updateUserName = userName + "up";

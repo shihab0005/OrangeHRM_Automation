@@ -1,6 +1,6 @@
 Feature: Login Page varificatin
 
- @LoginValidCredintials
+@LoginValidCredintials
   Scenario Outline: verify login with valid  credintials
     Given navigate to the login page
     And Check Ui element of Login Page

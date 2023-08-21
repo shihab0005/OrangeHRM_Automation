@@ -1,4 +1,5 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+const { Given, When, Then, setDefaultTimeout } = require("@cucumber/cucumber");
+setDefaultTimeout(20 * 1000);
 
 let loginPage;
 Given("navigate to the login page", async function () {
