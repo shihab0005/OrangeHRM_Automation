@@ -77,11 +77,11 @@ npx playwright test Test_003_admin_page.spec.js
 ```
 ## Run Application with Cucumber
 
-## Run All Cucumber Secnario
+### Run All Cucumber Secnario
 ```bash
 npm run cucumber:test
 ```
-## Run All Cucumber Secnario With Cucumber Html Report
+### Run All Cucumber Secnario With Cucumber Html Report
 ```bash
 npm run cucumber:withHTMLReport
 ```
