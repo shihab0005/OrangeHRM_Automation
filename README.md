@@ -76,10 +76,12 @@ OR
 npx playwright test Test_003_admin_page.spec.js
 ```
 ## Run Application with Cucumber
-```bash
-- Run All Secnario
-npm run cucumber:test
 
-- Run With Cucumber Html Report
+## Run All Cucumber Secnario
+```bash
+npm run cucumber:test
+```
+## Run All Cucumber Secnario With Cucumber Html Report
+```bash
 npm run cucumber:withHTMLReport
 ```
