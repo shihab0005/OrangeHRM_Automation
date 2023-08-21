@@ -31,6 +31,15 @@ and Track Successfully login.
 
 Testname: Test_001_login_page.spec.js
 ```
+```bash
+Scenario 2: Add new employee with valid user details.
+
+Scenario Description: 
+User Navigate To the Login page and Login with valid and invalid Credentials.Valid user Navigate to the Pim
+page add new employee with verification message.
+
+Testname: Test_002_pim_page.spec.js
+```
 
 ```bash
  Scenario 3: Verify Admin Page with CURD Operation and verify all required field and valid, invalid credentials and messages. 
