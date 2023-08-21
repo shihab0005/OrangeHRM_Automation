@@ -75,3 +75,9 @@ npx playwright test Test_001_login_page.spec.js
 OR
 npx playwright test Test_003_admin_page.spec.js
 ```
+## Run Application with Cucumber
+```bash
+ npm run cucumber:test
+Run With Html Report
+ npm run cucumber:withHTMLReport
+```
